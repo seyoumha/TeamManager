@@ -1,0 +1,23 @@
+<h2>{{title}}</h2>
+
+<a [routerLink]="['/','status','game','1']">Game 1</a> |
+<a [routerLink]="['/','status','game','2']">Game 2</a> |
+<a [routerLink]="['/','status','game','3']">Game 3</a> <br/><br/>
+
+<table border= '1;'>
+    <thead>
+      <tr>
+        <th>Player's Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of players'>
+        <td>{{p.name}}</td>
+        <td><button  (click) = "changeStatus(p._id, 'gameOneStatus', 'playing')" classs='playing' [style.background-color] = 'myColor("playing", p.gameOneStatus)'>Playing</button>
+            <button (click) = "changeStatus(p._id, 'gameOneStatus', 'notPlaying')" classs='notPlaying' [style.background-color] = 'myColor("notPlaying", p.gameOneStatus)'>Not Playing</button>
+            <button (click) = "changeStatus(p._id, 'gameOneStatus', 'undecided')" classs='undecided' [style.background-color] = 'myColor("undecided", p.gameOneStatus)'>Undecided</button></td>
+      </tr>
+    </tbody>
+  </table>
+
